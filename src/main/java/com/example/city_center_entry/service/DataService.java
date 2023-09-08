@@ -55,8 +55,11 @@ public class DataService {
         listOfOpenEntryes.add(entry);
     }
     //if auto already entered it return entry, if no - return null
-    public void getOpenEntry(Auto auto) {
-        listOfOpenEntryes.get(0);
+    public Entry getOpenEntry(String lisencePlate) {
+        return listOfOpenEntryes.stream().
+                filter(e -> e.getAuto().getLisencePlate().equals(lisencePlate))
+                .findFirst()
+                .get();
 
     }
 

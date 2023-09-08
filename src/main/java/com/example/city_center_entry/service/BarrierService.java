@@ -10,9 +10,17 @@ public class BarrierService {
 
    // @Inject for bean here
     DataService dataService;
-    public void open(Auto auto, PointEntryExit entryIn) {
-
+    public void openForEntry(Auto auto, PointEntryExit entryIn) {
         dataService.addOpenEntry(new Entry(auto, new Date(), entryIn));
+        open();
+    }
+
+    public void openForExit() {
+        open();
+    }
+
+    public void open() {
+        //brana sa otvara
     }
 
     public void stayClosed() {

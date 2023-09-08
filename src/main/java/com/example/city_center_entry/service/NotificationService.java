@@ -30,4 +30,12 @@ public class NotificationService {
     }
 
 
+    public void notifyRefuseRequest(Auto auto) {
+    //send email about refuse
+    }
+
+
+    public void notifyAboutUncompleteDoc(String email) {
+        //send email about uncompleted application
+    }
 }
