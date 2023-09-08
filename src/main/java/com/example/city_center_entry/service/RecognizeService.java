@@ -43,6 +43,7 @@ public class RecognizeService {
             Entry entry = dataService.getOpenEntry(recognizedNumber);
             entry.setDateOfExit(new Date());
             entry.setPointExit(dataService.getEntryPoint(gateID));
+            dataService.addClosedEntry(entry);
             barrierService.openForExit();
         }
         }

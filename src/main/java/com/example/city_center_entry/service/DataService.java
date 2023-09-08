@@ -39,13 +39,6 @@ public class DataService {
         repository.put(oldPlate, new Auto(newPlate, newOwner));
     }
 
-    // add list of cars to list of allowed cars
-    public void addFewCars(List<Auto> list) {
-        for (Auto auto: list) {
-            repository.put(auto.getLisencePlate(), auto);
-        }
-    }
-
     // get auto from allowed list if exist, if no - return null
     public Auto get(String plate) {
         return repository.get(plate);
@@ -55,9 +48,9 @@ public class DataService {
         listOfOpenEntryes.add(entry);
     }
     //if auto already entered it return entry, if no - return null
-    public Entry getOpenEntry(String lisencePlate) {
+    public Entry getOpenEntry(String licensePlate) {
         return listOfOpenEntryes.stream().
-                filter(e -> e.getAuto().getLisencePlate().equals(lisencePlate))
+                filter(e -> e.getAuto().getLisencePlate().equals(licensePlate))
                 .findFirst()
                 .get();
 
@@ -66,5 +59,9 @@ public class DataService {
     // return PointEntry based on ID
     public PointEntryExit getEntryPoint(int gateID) {
         return pointEntryExitList.get(gateID);
+    }
+
+    public void addClosedEntry(Entry entry) {
+        listOfClosedEntryes.add(entry);
     }
 }
