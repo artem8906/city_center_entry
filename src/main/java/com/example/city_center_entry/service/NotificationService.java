@@ -21,12 +21,17 @@ public class NotificationService {
     }
 
     public void notifyChangeInOutPoint(Entry entry) {
-        //notify if auto in and out using different entry points and may send a fee for it
+            //notify if auto in and out using different entry points and may send a fee for it
             if (entry.getPointExit()!=entry.getPointEntry()) return;// send message
     }
 
     public void notifyPolice(Entry entry) {
         //notify police
+    }
+
+    public void notifyApproveRequest(Car car) {
+        //vznik danovej povinnosti
+        //notify about approved request
     }
 
 

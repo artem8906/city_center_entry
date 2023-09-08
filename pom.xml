@@ -55,6 +55,12 @@
             <artifactId>spring-security-test</artifactId>
             <scope>test</scope>
         </dependency>
+
+        <dependency>
+            <groupId>org.tensorflow</groupId>
+            <artifactId>tensorflow</artifactId>
+            <version>1.15.0</version> <!-- Replace with the appropriate version -->
+        </dependency>
     </dependencies>
 
     <build>
