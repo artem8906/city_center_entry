@@ -4,13 +4,20 @@ import com.example.city_center_entry.entity.Auto;
 import com.example.city_center_entry.service.DataService;
 import com.example.city_center_entry.service.NotificationService;
 import org.springframework.web.bind.annotation.*;
+import com.example.city_center_entry.service.RequestService;
+import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PathVariable;
+import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.RestController;
 
 @RestController
 @RequestMapping("/api/")
 public class Controller {
 
-    //    @Inject bean here
-    DataService dataService;
+//    @Inject bean here
+    RequestService requestService;
+
+
 
     //    @Inject bean here
     NotificationService notificationService;
@@ -32,8 +39,8 @@ public class Controller {
 
     //level of security - admin
     @PostMapping("/addByAdmin")
-    public String addCarWithoutApprove(@PathVariable Auto auto) {
-        dataService.addNewAuto(auto);
+    public String addCarByAdmin(@PathVariable Auto auto) {
+        requestService.approve(auto);
         return "admin";
     }
 

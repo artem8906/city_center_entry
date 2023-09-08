@@ -1,8 +1,10 @@
 package com.example.city_center_entry.service;
 
 import com.example.city_center_entry.entity.Auto;
+import com.example.city_center_entry.entity.Entry;
 
 import java.io.File;
+import java.util.Date;
 
 public class RecognizeService {
     //external service for recognize plate number
@@ -29,12 +31,21 @@ public class RecognizeService {
 //    }
     // recognize plate number from image file send by camera with id of gate
     public void recognize(File file, int gateID) {
-        String recohnizedNumber = "BA100KD";
+        String recognizedNumber = "BA100KD";
 
-        Auto auto = dataService.get(recohnizedNumber);
-        if (auto != null) {
-            barrierService.open(auto, dataService.getEntryPoint(gateID));
-        } // auto bolo najdene v zozname povolenych, brana sa otvara
+        Auto auto = dataService.get(recognizedNumber);
+
+        if (auto != null) { //autu vstup povoleny
+            if (dataService.getOpenEntry(recognizedNumber)==null) { //vstup do centra
+            barrierService.openForEntry(auto, dataService.getEntryPoint(gateID)); // brana sa otvara
+        }
+            else { //vystup z centra
+            Entry entry = dataService.getOpenEntry(recognizedNumber);
+            entry.setDateOfExit(new Date());
+            entry.setPointExit(dataService.getEntryPoint(gateID));
+            barrierService.openForExit();
+        }
+        }
         else {
             //VSTUP NEPOVOLEN lebo auto ne bolo najdene v zozname povolenych
             // brana sa zostava zatvorena a informuje o tom

@@ -1,10 +1,16 @@
 package com.example.city_center_entry.entity;
 
 public class Owner {
-    private String firstName;
-    private String lastName;
+    private String name;
     private String adress;
     private String phoneNumber;
     private String email;
 
+    public String getEmail() {
+        return email;
+    }
+
+    public Owner(String name) {
+        this.name = name;
+    }
 }

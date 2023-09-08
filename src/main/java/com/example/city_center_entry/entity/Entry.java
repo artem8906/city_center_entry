@@ -10,6 +10,7 @@ public class Entry {
     private PointEntryExit pointEntry;
     private PointEntryExit pointExit;
 
+
     public Auto getAuto() {
         return auto;
     }
@@ -28,6 +29,14 @@ public class Entry {
 
     public PointEntryExit getPointExit() {
         return pointExit;
+    }
+
+    public void setDateOfExit(Date dateOfExit) {
+        this.dateOfExit = dateOfExit;
+    }
+
+    public void setPointExit(PointEntryExit pointExit) {
+        this.pointExit = pointExit;
     }
 
     public Entry(Auto auto, Date dateOfEntry, PointEntryExit pointEntry) {
