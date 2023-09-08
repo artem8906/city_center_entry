@@ -67,4 +67,8 @@ public class DataService {
     public PointEntryExit getEntryPoint(int gateID) {
         return pointEntryExitList.get(gateID);
     }
+
+    public void addClosedEntry(Entry entry) {
+        listOfClosedEntryes.add(entry);
+    }
 }
