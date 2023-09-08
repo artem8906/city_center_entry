@@ -57,6 +57,7 @@ public class DataService {
     //if auto already entered it return entry, if no - return null
     public void getOpenEntry(Auto auto) {
         listOfOpenEntryes.get(0);
+
     }
 
     // return PointEntry based on ID
