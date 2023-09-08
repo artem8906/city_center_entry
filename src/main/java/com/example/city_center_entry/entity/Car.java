@@ -5,7 +5,7 @@ import java.util.Date;
 import java.util.List;
 
 //@Entity
-public class Auto {
+public class Car {
 
 //    @ID
     private String lisencePlate;
@@ -13,7 +13,7 @@ public class Auto {
     private final Date dateOfRegister;
 
 
-    public Auto(String licencePlate, String owner) {
+    public Car(String licencePlate, String owner) {
         this.lisencePlate = licencePlate;
         this.owner = new Owner(owner);
         this.dateOfRegister = new Date();

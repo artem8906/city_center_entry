@@ -1,8 +1,7 @@
 package com.example.city_center_entry.service;
 
-import com.example.city_center_entry.entity.Auto;
+import com.example.city_center_entry.entity.Car;
 import com.example.city_center_entry.entity.Owner;
-import org.springframework.web.bind.annotation.RestController;
 
 
 public class RequestService {
@@ -14,12 +13,12 @@ public class RequestService {
     NotificationService notificationService;
 
 
-    public void approve(Auto auto) {
-        dataService.addNewAuto(auto);
+    public void approve(Car car) {
+        dataService.addNewAuto(car);
     }
 
-    public void refuse(Auto auto) {
-        notificationService.notifyRefuseRequest(auto);
+    public void refuse(Car car) {
+        notificationService.notifyRefuseRequest(car);
     }
 
     public void sendBackToUser(Owner owner) {
