@@ -16,6 +16,9 @@ public class RecognizeService {
     //@Inject bean here
     BarrierService barrierService;
 
+    //@Inject bean here
+    BillService billService;
+
     //    REQUEST
 //# Get an image
 //    curl -o /tmp/car.jpg https://platerecognizer.com/static/demo.jpg
@@ -45,6 +48,7 @@ public class RecognizeService {
             entry.setPointExit(dataService.getEntryPoint(gateID));
             dataService.addClosedEntry(entry);
             barrierService.openForExit();
+            billService.createAndSendBill(entry.getAuto());
         }
         }
         else {

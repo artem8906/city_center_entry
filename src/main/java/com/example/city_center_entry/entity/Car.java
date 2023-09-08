@@ -12,14 +12,19 @@ public class Car {
     private Owner owner;
     private final Date dateOfRegister;
 
+    private final List<String> aimOfEntry = new ArrayList<>();
 
-    public Car(String licencePlate, String owner) {
+
+    public Car(String licencePlate, String owner, String aimOfEntry) {
         this.lisencePlate = licencePlate;
         this.owner = new Owner(owner);
         this.dateOfRegister = new Date();
+        this.aimOfEntry.add(aimOfEntry);
     }
 
-
+    public List<String> getAimOfEntry() {
+        return aimOfEntry;
+    }
 
     public String getLisencePlate() {
         return lisencePlate;

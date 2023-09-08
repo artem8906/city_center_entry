@@ -18,12 +18,18 @@ public class DataService {
     private final List<Entry> listOfOpenEntryes = new ArrayList<>();
 
     private final List<PointEntryExit> pointEntryExitList = new ArrayList<>();
+    private final Map<String, Double> priceList = new HashMap<>();
+
     //fill list of all entry point
     {
         pointEntryExitList.add(new PointEntryExit(0));
         pointEntryExitList.add(new PointEntryExit(1));
         pointEntryExitList.add(new PointEntryExit(2));
         pointEntryExitList.add(new PointEntryExit(3));
+        priceList.put("4b", 5.0);
+        priceList.put("4f", 30.0);
+        priceList.put("4d", 15.0);
+
     }
     //add new auto to list allowed to entry
     public Car addNewAuto (Car car) {
@@ -35,8 +41,8 @@ public class DataService {
         return repository.remove(car.getLisencePlate());
     }
     //change lisence plate in list of allowed to entry
-    public void changeAuto (String oldPlate, String newPlate, String newOwner) {
-        repository.put(oldPlate, new Car(newPlate, newOwner));
+    public void changeAuto (String oldPlate, String newPlate, String newOwner, String aimOfEntry) {
+        repository.put(oldPlate, new Car(newPlate, newOwner, aimOfEntry));
     }
 
     // add list of cars to list of allowed cars
@@ -70,5 +76,9 @@ public class DataService {
 
     public void addClosedEntry(Entry entry) {
         listOfClosedEntryes.add(entry);
+    }
+
+    public Map<String, Double> getPriceList() {
+        return priceList;
     }
 }
