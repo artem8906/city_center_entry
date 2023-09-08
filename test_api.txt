@@ -1,0 +1,63 @@
+import java.io.BufferedReader;
+import java.io.InputStreamReader;
+import java.io.OutputStream;
+import java.net.HttpURLConnection;
+import java.net.URL;
+
+public class APICheckUserData {
+
+    private static final String API_URL = "https://your-api-endpoint.com/checkUserData";
+
+    public static void main(String[] args) {
+        try {
+            String response = checkUserData("John", "Doe", "1234567890", "Main St.", 12345, "CityName");
+            System.out.println(response);
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+    }
+
+    public static String checkUserData(String meno, String priezvisko, String rodne_Cislo, String ulica, int psc, String obec) throws Exception {
+        URL url = new URL(API_URL);
+        HttpURLConnection connection = (HttpURLConnection) url.openConnection();
+
+        // Set request method to POST
+        connection.setRequestMethod("POST");
+        connection.setRequestProperty("Content-Type", "application/json; utf-8");
+        connection.setRequestProperty("Accept", "application/json");
+        connection.setDoOutput(true);
+
+        // Convert the user data into JSON format
+        String jsonInputString = String.format(
+                "{" +
+                        "\"Meno\": \"%s\"," +
+                        "\"Priezvisko\": \"%s\"," +
+                        "\"Rodne_Cislo\": \"%s\"," +
+                        "\"Ulica\": \"%s\"," +
+                        "\"PSC\": %d," +
+                        "\"Obec\": \"%s\"" +
+                        "}",
+                meno, priezvisko, rodne_Cislo, ulica, psc, obec);
+
+        // Write the JSON data to the connection's output stream
+        try (OutputStream os = connection.getOutputStream()) {
+            byte[] input = jsonInputString.getBytes("utf-8");
+            os.write(input, 0, input.length);
+        }
+
+        // Read the response from the server
+        int responseCode = connection.getResponseCode();
+        if (responseCode == HttpURLConnection.HTTP_OK) { // success
+            try (BufferedReader br = new BufferedReader(new InputStreamReader(connection.getInputStream(), "utf-8"))) {
+                StringBuilder response = new StringBuilder();
+                String responseLine;
+                while ((responseLine = br.readLine()) != null) {
+                    response.append(responseLine.trim());
+                }
+                return response.toString();
+            }
+        } else { // any other status code is treated as an error
+            throw new RuntimeException("Failed : HTTP error code : " + responseCode);
+        }
+    }
+}
