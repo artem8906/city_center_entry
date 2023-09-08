@@ -1,20 +1,16 @@
-package com.example.city_center_entry;
+package com.example.city_center_entry.controller;
 
-import com.example.city_center_entry.entity.Auto;
-import com.example.city_center_entry.service.DataService;
+import com.example.city_center_entry.entity.Car;
 import com.example.city_center_entry.service.NotificationService;
 import com.example.city_center_entry.service.RequestService;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PathVariable;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
 @RestController
+@RequestMapping("/api/")
 public class Controller {
 
-//    @Inject bean here
+    //    @Inject bean here
     RequestService requestService;
-
 
 
     //    @Inject bean here
@@ -22,7 +18,7 @@ public class Controller {
 
     //start page
     @GetMapping
-    public String main () {
+    public String main() {
         return "main";
     }
 
@@ -37,14 +33,14 @@ public class Controller {
 
     //level of security - admin
     @PostMapping("/addByAdmin")
-    public String addCarByAdmin(@PathVariable Auto auto) {
-        requestService.approve(auto);
+    public String addCarByAdmin(@PathVariable Car car) {
+        requestService.approve(car);
         return "admin";
     }
 
     @PostMapping("/addNewCar")
-    public String requestForAddingNewCar(@PathVariable Auto auto) {
-        notificationService.notifyAdminAboutNewRequestForAddCar(auto);
+    public String requestForAddingNewCar(@PathVariable Car car) {
+        notificationService.notifyAdminAboutNewRequestForAddCar(car);
         return "main";
     }
 

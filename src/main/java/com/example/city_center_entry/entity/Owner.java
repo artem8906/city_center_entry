@@ -1,5 +1,8 @@
 package com.example.city_center_entry.entity;
 
+import lombok.Data;
+
+@Data
 public class Owner {
     private String name;
     private String adress;

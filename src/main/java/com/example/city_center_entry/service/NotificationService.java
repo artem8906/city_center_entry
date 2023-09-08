@@ -1,12 +1,12 @@
 package com.example.city_center_entry.service;
 
-import com.example.city_center_entry.entity.Auto;
+import com.example.city_center_entry.entity.Car;
 import com.example.city_center_entry.entity.Entry;
 
 
 public class NotificationService {
 
-    public void notifyAdminAboutNewRequestForAddCar(Auto auto) {
+    public void notifyAdminAboutNewRequestForAddCar(Car car) {
         //notify admin about request for add new car
     }
 
@@ -30,7 +30,7 @@ public class NotificationService {
     }
 
 
-    public void notifyRefuseRequest(Auto auto) {
+    public void notifyRefuseRequest(Car car) {
     //send email about refuse
     }
 

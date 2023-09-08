@@ -1,0 +1,175 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>VehicleEntries Form</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f4f4f8;
+            margin: 40px;
+        }
+
+        form {
+            background-color: #fff;
+            max-width: 900px;
+            margin: 0 car;
+            padding: 20px 40px;
+            box-shadow: 0px 0px 15px rgba(0, 0, 0, 0.1);
+            border-radius: 5px;
+        }
+
+        .form-row {
+            display: flex;
+            justify-content: space-between;
+            flex-wrap: wrap;
+        }
+
+        .form-column {
+            flex: 1;
+            margin-right: 20px;
+            margin-bottom: 20px;
+        }
+
+        label {
+            display: block;
+            margin-bottom: 10px;
+            font-weight: bold;
+        }
+
+        input[type="text"], input[type="number"], input[type="email"], input[type="datetime-local"] {
+            width: 100%;
+            padding: 10px;
+            margin-bottom: 10px;
+            border: 1px solid #ccc;
+            border-radius: 4px;
+            font-size: 16px;
+        }
+
+        input[type="submit"] {
+            background-color: #007BFF;
+            color: white;
+            padding: 10px 20px;
+            border: none;
+            border-radius: 4px;
+            font-size: 18px;
+            cursor: pointer;
+        }
+
+        input[type="submit"]:hover {
+            background-color: #0056b3;
+        }
+
+        input[type="checkbox"] {
+            margin-right: 10px;
+        }
+        input[type="file"] {
+            margin-bottom: 20px;
+        }
+    </style>
+</head>
+<body>
+    <form action="/submit" method="post"> <!-- Replace '/submit' with your server endpoint -->
+        <label for="FO_PO">Fyzická osoba / Právnická osoba</label>
+            <input type="radio" name="FO_PO" value="true"> Fyzická osoba 
+            <input type="radio" name="FO_PO" value="false"> Právnická osoba<br><br>
+
+        <div class="form-row">
+            <div class="form-column">
+                <label for="Meno_FO">Meno:</label>
+                <input type="text" name="Meno_FO"><br><br>
+                <label for="ICO">IČO:</label>
+                <input type="number" name="ICO"><br><br>
+                
+                <label for="Rodne_cislo_FO">Rodné číslo:</label>
+                <input type="text" name="Rodne_cislo_FO"><br><br>
+                
+                <label for="Adresa_trvaleho pobytu_FO">Adresa trvalého pobytu fyzickej osoby:</label>
+                <input type="text" name="Adresa_trvaleho pobytu_FO"><br><br>
+                
+                <label for="Adresa_trvaleho pobytu_PO">Adresa trvalého pobytu právnickej osoby:</label>
+                <input type="text" name="Adresa_trvaleho pobytu_PO"><br><br>
+                
+                <label for="Tovarenska_znacka_typ">Továrenská značka vozidla:</label>
+                <input type="text" name="Tovarenska_znacka_typ"><br><br>
+
+                <label for="Miesto_parkovania_v_historickej_casti">Miesto parkovania v historickej časti mesta:</label>
+                <select name="Miesto_parkovania_v_historickej_casti">
+                    <option value="Michalská">Michalská</option>
+                    <option value="Ventúrska">Ventúrska</option>
+                    <option value="Sedlárska">Sedlárska</option>
+                    <option value="Strakova">Strakova</option>
+                    <option value="Kapitulská">Kapitulská</option>
+                    <option value="Klariská">Klariská</option>
+                    <option value="Na vŕšku">Na vŕšku</option>
+                    <option value="Farská">Farská</option>
+                    <option value="Prepoštská">Prepoštská</option>
+                    <option value="Úzka">Úzka</option>
+                    <option value="Rybné námestie">Rybné námestie</option>
+                    <option value="Poštová">Poštová</option>
+                </select>
+
+                <label for="Cas_odchodu">Čas Cas_odchodu:</label>
+                <input type="datetime-local" name="Cas_odchodu"><br><br>
+            </div>
+
+            <div class="form-column">
+                <label for="Priezvisko_FO">Priezvisko:</label>
+                <input type="text" name="Priezvisko_FO"><br><br>
+
+                <label for="Nazov_PO">Názov spoločnosti:</label>
+                <input type="text" name="Nazov_PO"><br><br>              
+
+                <label for="Telefonne_cislo">Telefónne číslo:</label>
+                <input type="text" name="Telefonne_cislo"><br><br>
+
+                <label for="email">E-mail:</label>
+                <input type="email" name="email"><br><br>
+
+                <label for="EVC">Evidenčné číslo vozidla:</label>
+                <input type="text" name="EVC"><br><br>
+
+                <label for="Hmotnost_motoroveho_vozidla_podla_technickeho_preukazu">Hmotnosť motorového vozidla podľa technického preukazu:</label>
+                <input type="text" name="Hmotnost_motoroveho_vozidla_podla_technickeho_preukazu"><br><br>
+
+                <label for="Ucel_vjazdu_do_historickej_casti">Účel vjazdu do historickej časti mesta:</label>
+                <input type="text" name="Ucel_vjazdu_do_historickej_casti"><br><br>
+
+                <label for="Miesto_zastavenia_v_historickej_casti">Miesto zastavenia v historickej časti mesta:</label>
+                <select name="Miesto_zastavenia_v_historickej_casti">
+                    <option value="Michalská">Michalská</option>
+                    <option value="Ventúrska">Ventúrska</option>
+                    <option value="Sedlárska">Sedlárska</option>
+                    <option value="Strakova">Strakova</option>
+                    <option value="Kapitulská">Kapitulská</option>
+                    <option value="Klariská">Klariská</option>
+                    <option value="Na vŕšku">Na vŕšku</option>
+                    <option value="Farská">Farská</option>
+                    <option value="Prepoštská">Prepoštská</option>
+                    <option value="Úzka">Úzka</option>
+                    <option value="Rybné námestie">Rybné námestie</option>
+                    <option value="Poštová">Poštová</option>
+                </select>
+                
+
+                <label for="Pocet_dni_vjazdu">Počet dní vjazdu:</label>
+                <input type="number" name="Pocet_dni_vjazdu"><br><br>
+
+                <label for="Cas_prichodu">Čas príchodu:</label>
+                <input type="datetime-local" name="Cas_prichodu"><br><br>
+
+               
+            </div>
+        </div>
+
+        <input type="submit" value="Odoslať">
+
+        <form action="/upload" method="post" enctype="multipart/form-data">
+            <label for="fileUpload">Upload a .pdf or .docx file:</label>
+            <input type="file" id="fileUpload" name="fileUpload" accept=".pdf, .docx" required>
+            <input type="submit" value="Upload">
+        </form>
+    </form>
+</body>
+</html>

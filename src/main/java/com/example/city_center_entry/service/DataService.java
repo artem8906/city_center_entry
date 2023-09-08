@@ -1,6 +1,6 @@
 package com.example.city_center_entry.service;
 
-import com.example.city_center_entry.entity.Auto;
+import com.example.city_center_entry.entity.Car;
 import com.example.city_center_entry.entity.Entry;
 import com.example.city_center_entry.entity.PointEntryExit;
 
@@ -11,7 +11,7 @@ import java.util.Map;
 
 public class DataService {
 
-    private final Map<String, Auto> repository = new HashMap<>();
+    private final Map<String, Car> repository = new HashMap<>();
 
     private final List<Entry> listOfClosedEntryes = new ArrayList<>();
 
@@ -26,21 +26,28 @@ public class DataService {
         pointEntryExitList.add(new PointEntryExit(3));
     }
     //add new auto to list allowed to entry
-    public Auto addNewAuto (Auto auto) {
-        return repository.put(auto.getLisencePlate(), auto);
+    public Car addNewAuto (Car car) {
+        return repository.put(car.getLisencePlate(), car);
     }
 
     //remove auto from list of allowed to entry
-    public Auto removeAuto (Auto auto) {
-        return repository.remove(auto.getLisencePlate());
+    public Car removeAuto (Car car) {
+        return repository.remove(car.getLisencePlate());
     }
     //change lisence plate in list of allowed to entry
     public void changeAuto (String oldPlate, String newPlate, String newOwner) {
-        repository.put(oldPlate, new Auto(newPlate, newOwner));
+        repository.put(oldPlate, new Car(newPlate, newOwner));
+    }
+
+    // add list of cars to list of allowed cars
+    public void addFewCars(List<Car> list) {
+        for (Car car : list) {
+            repository.put(car.getLisencePlate(), car);
+        }
     }
 
     // get auto from allowed list if exist, if no - return null
-    public Auto get(String plate) {
+    public Car get(String plate) {
         return repository.get(plate);
     }
     //when auto enters it adds entry to list
@@ -48,9 +55,9 @@ public class DataService {
         listOfOpenEntryes.add(entry);
     }
     //if auto already entered it return entry, if no - return null
-    public Entry getOpenEntry(String licensePlate) {
+    public Entry getOpenEntry(String lisencePlate) {
         return listOfOpenEntryes.stream().
-                filter(e -> e.getAuto().getLisencePlate().equals(licensePlate))
+                filter(e -> e.getAuto().getLisencePlate().equals(lisencePlate))
                 .findFirst()
                 .get();
 
@@ -59,9 +66,5 @@ public class DataService {
     // return PointEntry based on ID
     public PointEntryExit getEntryPoint(int gateID) {
         return pointEntryExitList.get(gateID);
-    }
-
-    public void addClosedEntry(Entry entry) {
-        listOfClosedEntryes.add(entry);
     }
 }

@@ -1,6 +1,6 @@
 package com.example.city_center_entry.service;
 
-import com.example.city_center_entry.entity.Auto;
+import com.example.city_center_entry.entity.Car;
 import com.example.city_center_entry.entity.Entry;
 
 import java.io.File;
@@ -33,11 +33,11 @@ public class RecognizeService {
     public void recognize(File file, int gateID) {
         String recognizedNumber = "BA100KD";
 
-        Auto auto = dataService.get(recognizedNumber);
+        Car car = dataService.get(recognizedNumber);
 
-        if (auto != null) { //autu vstup povoleny
+        if (car != null) { //autu vstup povoleny
             if (dataService.getOpenEntry(recognizedNumber)==null) { //vstup do centra
-            barrierService.openForEntry(auto, dataService.getEntryPoint(gateID)); // brana sa otvara
+            barrierService.openForEntry(car, dataService.getEntryPoint(gateID)); // brana sa otvara
         }
             else { //vystup z centra
             Entry entry = dataService.getOpenEntry(recognizedNumber);

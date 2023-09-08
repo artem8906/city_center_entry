@@ -4,15 +4,15 @@ import java.util.Date;
 
 public class Entry {
 
-    private Auto auto;
+    private Car car;
     private Date dateOfEntry;
     private Date dateOfExit;
     private PointEntryExit pointEntry;
     private PointEntryExit pointExit;
 
 
-    public Auto getAuto() {
-        return auto;
+    public Car getAuto() {
+        return car;
     }
 
     public Date getDateOfEntry() {
@@ -39,8 +39,8 @@ public class Entry {
         this.pointExit = pointExit;
     }
 
-    public Entry(Auto auto, Date dateOfEntry, PointEntryExit pointEntry) {
-        this.auto = auto;
+    public Entry(Car car, Date dateOfEntry, PointEntryExit pointEntry) {
+        this.car = car;
         this.dateOfEntry = dateOfEntry;
         this.pointEntry = pointEntry;
     }

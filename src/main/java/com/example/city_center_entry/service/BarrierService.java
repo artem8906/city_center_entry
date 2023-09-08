@@ -1,6 +1,6 @@
 package com.example.city_center_entry.service;
 
-import com.example.city_center_entry.entity.Auto;
+import com.example.city_center_entry.entity.Car;
 import com.example.city_center_entry.entity.Entry;
 import com.example.city_center_entry.entity.PointEntryExit;
 
@@ -10,8 +10,8 @@ public class BarrierService {
 
    // @Inject for bean here
     DataService dataService;
-    public void openForEntry(Auto auto, PointEntryExit entryIn) {
-        dataService.addOpenEntry(new Entry(auto, new Date(), entryIn));
+    public void openForEntry(Car car, PointEntryExit entryIn) {
+        dataService.addOpenEntry(new Entry(car, new Date(), entryIn));
         open();
     }
 
