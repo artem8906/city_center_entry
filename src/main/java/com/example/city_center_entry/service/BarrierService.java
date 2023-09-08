@@ -6,10 +6,12 @@ import com.example.city_center_entry.entity.PointEntryExit;
 
 import java.util.Date;
 
+
 public class BarrierService {
 
-   // @Inject for bean here
+    // @Inject for bean here
     DataService dataService;
+
     public void open(Auto auto, PointEntryExit entryIn) {
 
         dataService.addOpenEntry(new Entry(auto, new Date(), entryIn));
