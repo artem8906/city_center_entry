@@ -7,7 +7,7 @@ import java.util.List;
 //@Entity
 public class Car {
 
-//    @ID
+    //    @ID
     private String lisencePlate;
     private Owner owner;
     private final Date dateOfRegister;
