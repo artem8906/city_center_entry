@@ -14,6 +14,7 @@ public class EntryRequestRepository {
 
     private EntryRequestRepository() {
         requests = new ArrayList<>();
+
     }
 
     public List<EntryRequestEntity> getAllByUserId(int userId) {
@@ -25,5 +26,9 @@ public class EntryRequestRepository {
         autoincremment++;
         requests.add(entity);
         return entity;
+    }
+
+    public List<EntryRequestEntity> getAll() {
+        return requests;
     }
 }

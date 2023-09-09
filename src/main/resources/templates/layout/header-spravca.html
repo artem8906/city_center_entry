@@ -2,9 +2,26 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>Title</title>
 </head>
 <body>
-
+<div th:fragment="header">
+    <ul class="nav justify-content-center" >
+        <li class="nav-item">
+            <a class="nav-link" href="/spravca/neskontrolovane">Neskontrolované žiadosti</a>
+        </li>
+        <li class="nav-item">
+            <a class="nav-link" href="/ziadatel/schvalene">Shválené žiadosti</a>
+        </li>
+        <li class="nav-item">
+            <a class="nav-link" href="/ziadatel/zamietnute">Zamietnuté žiadosti</a>
+        </li>
+        <li class="nav-item">
+            <a class="nav-link" href="/ziadatel/nekompletne">Žiadosti s nedostatkom iformácií</a>
+        </li>
+        <li class="nav-item">
+            <a class="nav-link" href="/logout">Odhlásiť sa</a>
+        </li>
+    </ul>
+</div>
 </body>
 </html>
