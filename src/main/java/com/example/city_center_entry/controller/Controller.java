@@ -9,6 +9,7 @@ import lombok.AllArgsConstructor;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
+import java.util.Map;
 
 @RestController
 @RequestMapping("/api/")
@@ -57,6 +58,11 @@ public class Controller {
     @GetMapping("/entries")
     public List<Entry> allClosedEntries() {
         return dataService.getListOfClosedEntryes();
+    }
+
+    @GetMapping("/allowedCars")
+    public Map<String, Car> allAllowedCars() {
+        return dataService.getRepository();
     }
 
 }

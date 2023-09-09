@@ -23,7 +23,7 @@ public class DataService {
     private final List<PointEntryExit> pointEntryExitList = new ArrayList<>();
     private final Map<String, Double> priceList = new HashMap<>();
 
-    //fill list of all entry point
+    //fill list for simulate data
     {
         pointEntryExitList.add(new PointEntryExit(0));
         pointEntryExitList.add(new PointEntryExit(1));
@@ -33,9 +33,16 @@ public class DataService {
         priceList.put("4f", 30.0);
         priceList.put("4d", 15.0);
         listOfClosedEntryes.add(new Entry(new Car("BA100LS", "MV SK", "4a"), new Date(), pointEntryExitList.get(1)));
-        listOfClosedEntryes.add(new Entry(new Car("BA100LS", "MV SK", "4a"), new Date(), pointEntryExitList.get(1)));
-        listOfClosedEntryes.add(new Entry(new Car("BA100LS", "MV SK", "4a"), new Date(), pointEntryExitList.get(1)));
-
+        listOfClosedEntryes.add(new Entry(new Car("BA200LS", "MV SK", "4a"), new Date(), pointEntryExitList.get(1)));
+        listOfClosedEntryes.add(new Entry(new Car("BA300LS", "MV SK", "4a"), new Date(), pointEntryExitList.get(1)));
+        Car car1 = new Car("BA100LS", "MV SK", "4a");
+        Car car2 = new Car("BA200LS", "MV SK", "4a");
+        Car car3 = new Car("BA300LS", "MV SK", "4a");
+        Car car4 = new Car("BA400LS", "MV SK", "4a");
+        repository.put(car1.getLisencePlate(), car1);
+        repository.put(car2.getLisencePlate(), car2);
+        repository.put(car3.getLisencePlate(), car3);
+        repository.put(car4.getLisencePlate(), car4);
     }
     //add new auto to list allowed to entry
     public Car addNewAuto (Car car) {
