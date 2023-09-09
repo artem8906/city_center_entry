@@ -24,7 +24,7 @@ public class EntryRequestForm {
     private String factoryBrand;
     private PurposeOfEntryEnum purposeOfEntry;
     private boolean parking;
-    private int parkingStreetId;
+    private Integer parkingStreetId;
     // TODO: 8. 9. 2023
     /*private Date arriveDateTime;
     private Date leaveDateTime;
