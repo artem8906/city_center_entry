@@ -81,4 +81,9 @@ public class UserController {
         model.addAttribute("requests", entryRequestRepository.getAllByUserId(securityContextService.getUser().getId()));
         return "ziadatel/zoznam-ziadosti";
     }
+
+    @GetMapping("zoznam-platieb")
+    public String platby(ModelMap model){
+        return "ziadatel/zoznam-platieb";
+    }
 }
