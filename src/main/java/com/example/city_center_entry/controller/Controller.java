@@ -1,12 +1,18 @@
 package com.example.city_center_entry.controller;
 
 import com.example.city_center_entry.entity.Car;
+import com.example.city_center_entry.entity.Entry;
+import com.example.city_center_entry.service.DataService;
 import com.example.city_center_entry.service.NotificationService;
 import com.example.city_center_entry.service.RequestService;
+import lombok.AllArgsConstructor;
 import org.springframework.web.bind.annotation.*;
+
+import java.util.List;
 
 @RestController
 @RequestMapping("/api/")
+@AllArgsConstructor
 public class Controller {
 
     //    @Inject bean here
@@ -15,6 +21,10 @@ public class Controller {
 
     //    @Inject bean here
     NotificationService notificationService;
+
+    //@Inject
+
+    DataService dataService;
 
     //start page
     @GetMapping
@@ -42,6 +52,11 @@ public class Controller {
     public String requestForAddingNewCar(@PathVariable Car car) {
         notificationService.notifyAdminAboutNewRequestForAddCar(car);
         return "main";
+    }
+
+    @GetMapping("/entries")
+    public List<Entry> allClosedEntries() {
+        return dataService.getListOfClosedEntryes();
     }
 
 }

@@ -7,22 +7,23 @@ import org.springframework.beans.factory.annotation.Value;
 import org.springframework.mail.javamail.JavaMailSender;
 import org.springframework.mail.javamail.MimeMessageHelper;
 import org.springframework.scheduling.annotation.Async;
+import org.springframework.stereotype.Component;
 
 import javax.mail.MessagingException;
 import javax.mail.internet.MimeMessage;
 
-
+@Component
 public class NotificationService {
 
-    private final JavaMailSender mailSender;
+//    private final JavaMailSender mailSender;
 
-    @Value("${spring.mail.username}")
-    private String mailFrom;
+//    @Value("${spring.mail.username}")
+//    private String mailFrom;
 
-    @Autowired
-    public NotificationService(JavaMailSender mailSender) {
-        this.mailSender = mailSender;
-    }
+//    @Autowired
+//    public NotificationService(JavaMailSender mailSender) {
+//        this.mailSender = mailSender;
+//    }
 
     public void notifyAdminAboutNewRequestForAddCar(Car car) {
         //notify admin about request for add new car

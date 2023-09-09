@@ -2,8 +2,9 @@ package com.example.city_center_entry.service;
 
 import com.example.city_center_entry.entity.Car;
 import com.example.city_center_entry.entity.Owner;
+import org.springframework.stereotype.Component;
 
-
+@Component
 public class RequestService {
 
     //@Inject

@@ -4,11 +4,11 @@ import com.example.city_center_entry.entity.Car;
 import com.example.city_center_entry.entity.EmergencyEntry;
 import com.example.city_center_entry.entity.Entry;
 import com.example.city_center_entry.entity.PointEntryExit;
+import org.springframework.stereotype.Component;
 
-import java.util.ArrayList;
-import java.util.HashMap;
-import java.util.List;
-import java.util.Map;
+import java.util.*;
+
+@Component
 
 public class DataService {
 
@@ -32,6 +32,9 @@ public class DataService {
         priceList.put("4b", 5.0);
         priceList.put("4f", 30.0);
         priceList.put("4d", 15.0);
+        listOfClosedEntryes.add(new Entry(new Car("BA100LS", "MV SK", "4a"), new Date(), pointEntryExitList.get(1)));
+        listOfClosedEntryes.add(new Entry(new Car("BA100LS", "MV SK", "4a"), new Date(), pointEntryExitList.get(1)));
+        listOfClosedEntryes.add(new Entry(new Car("BA100LS", "MV SK", "4a"), new Date(), pointEntryExitList.get(1)));
 
     }
     //add new auto to list allowed to entry
@@ -87,5 +90,25 @@ public class DataService {
 
     public void addEmergencyEntry(EmergencyEntry emergencyEntry) {
     listOfEmergencyEntryes.add(emergencyEntry);
+    }
+
+    public Map<String, Car> getRepository() {
+        return repository;
+    }
+
+    public List<Entry> getListOfClosedEntryes() {
+        return listOfClosedEntryes;
+    }
+
+    public List<Entry> getListOfOpenEntryes() {
+        return listOfOpenEntryes;
+    }
+
+    public List<Entry> getListOfEmergencyEntryes() {
+        return listOfEmergencyEntryes;
+    }
+
+    public List<PointEntryExit> getPointEntryExitList() {
+        return pointEntryExitList;
     }
 }
