@@ -36,7 +36,7 @@ V aplíkácii sú 2 rôzne User Interface pre správcu a žiadateľa. Každý m�
 
 ### Endpoints
 http://localhost:8080/api/entries - všetky vstupy všetkych aut
-
+http://localhost:8080/api/allowedCars - všetky povoleny na vstup auta
 
 ### Tech stack
 Privátny cloud je ideálnym miestom na spustenie týchto aplikácií. Databáza ako služba (DAAS) znižuje výdavky a zároveň zvyšuje bezpečnosť. 
