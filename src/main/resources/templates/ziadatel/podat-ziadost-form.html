@@ -63,8 +63,13 @@
                             <label for="purposeOfEntry"
                                    th:text="#{'dovod'}">Dôvod žiadosti na vstup do historickej časti centra
                                 mesta</label>
-                            <input th:field="*{purposeOfEntry}" class="form-control form-control-sm"
-                                   id="purposeOfEntry"></input>
+                            <select th:field="*{purposeOfEntryId}"
+                                    id="purposeOfEntry" class="form-select form-select-sm"
+                                    aria-label=".form-select-sm example">
+                                <option selected hidden value="">Vyberte dôvod vstupu</option>
+                                <option th:each="purpose : ${purposes}" th:value="${purpose.id}"
+                                        th:text="${purpose.text}"></option>
+                            </select>
                             <label for="parking"
                                    th:text="#{'parking'}">Vozidlo bude v historickom meste parkovať</label>
                             <input th:field="*{parking}" class="form-check-input" type="checkbox"

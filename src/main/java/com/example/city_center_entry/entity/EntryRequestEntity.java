@@ -7,7 +7,7 @@ import lombok.Data;
 @Data
 public class EntryRequestEntity {
     private int id;
-    private int userId;
+    private UserEntity user;
     private TypeOfPerson typeOfPerson;
     private String name;
     private String identifier;
@@ -16,9 +16,10 @@ public class EntryRequestEntity {
     private String email;
     private String ecv;
     private float weightOfCar;
+    private String factoryBrand;
     private PurposeOfEntryEnum purposeOfEntry;
     private boolean parking;
-    private int parkingStreetId;
+    private StreetsEnum parkingStreet;
     private RequestStatus status;
     // TODO: 8. 9. 2023
 }

@@ -1,7 +1,5 @@
 package com.example.city_center_entry.model;
 
-import com.example.city_center_entry.entity.PurposeOfEntryEnum;
-import com.example.city_center_entry.entity.StreetsEnum;
 import com.example.city_center_entry.enums.TypeOfPerson;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
@@ -22,9 +20,11 @@ public class EntryRequestForm {
     private String ecv;
     private float weightOfCar;
     private String factoryBrand;
-    private PurposeOfEntryEnum purposeOfEntry;
+    private Integer purposeOfEntryId;
     private boolean parking;
     private Integer parkingStreetId;
+
+
     // TODO: 8. 9. 2023
     /*private Date arriveDateTime;
     private Date leaveDateTime;
