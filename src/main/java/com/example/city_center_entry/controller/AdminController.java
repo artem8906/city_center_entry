@@ -6,7 +6,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 
 @Controller
 @RequestMapping("spravca")
-public class SpravcaProfilController {
+public class AdminController {
 
     @GetMapping
     public String getProfil() {

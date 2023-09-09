@@ -9,14 +9,24 @@ import java.util.List;
 @Component
 public class StreetEnumRepository {
 
-    public List<StreetsEnum> nacitajUlice(){
-        List<StreetsEnum> result = new ArrayList<>();
-        result.add(new StreetsEnum(1, "Michalská"));
-        result.add(new StreetsEnum(2, "Ventúrska"));
-        result.add(new StreetsEnum(3, "Sedlárska"));
-        result.add(new StreetsEnum(4, "Straková"));
-        result.add(new StreetsEnum(5, "Kapitulska"));
+    private List<StreetsEnum> streets;
 
-        return result;
+    public StreetEnumRepository() {
+        streets = new ArrayList<>();
+        streets.add(new StreetsEnum(1, "Michalská"));
+        streets.add(new StreetsEnum(2, "Ventúrska"));
+        streets.add(new StreetsEnum(3, "Sedlárska"));
+        streets.add(new StreetsEnum(4, "Straková"));
+        streets.add(new StreetsEnum(5, "Kapitulska"));
     }
+
+    public List<StreetsEnum> nacitajUlice() {
+        return streets;
+    }
+
+    public StreetsEnum najdiUlicuPodlaId(int id) {
+        return streets.stream().filter(it -> it.getId() == id).findFirst().orElse(null);
+    }
+
+
 }
