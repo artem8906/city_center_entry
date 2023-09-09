@@ -1,6 +1,7 @@
 package com.example.city_center_entry.service;
 
 import com.example.city_center_entry.entity.Car;
+import com.example.city_center_entry.entity.EmergencyEntry;
 import com.example.city_center_entry.entity.Entry;
 import com.example.city_center_entry.entity.PointEntryExit;
 
@@ -16,6 +17,8 @@ public class DataService {
     private final List<Entry> listOfClosedEntryes = new ArrayList<>();
 
     private final List<Entry> listOfOpenEntryes = new ArrayList<>();
+
+    private final List<Entry> listOfEmergencyEntryes = new ArrayList<>();
 
     private final List<PointEntryExit> pointEntryExitList = new ArrayList<>();
     private final Map<String, Double> priceList = new HashMap<>();
@@ -80,5 +83,9 @@ public class DataService {
 
     public Map<String, Double> getPriceList() {
         return priceList;
+    }
+
+    public void addEmergencyEntry(EmergencyEntry emergencyEntry) {
+    listOfEmergencyEntryes.add(emergencyEntry);
     }
 }

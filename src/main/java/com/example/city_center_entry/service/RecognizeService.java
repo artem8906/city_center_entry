@@ -33,7 +33,7 @@ public class RecognizeService {
 //                "score": 0.90 }]
 //    }
     // recognize plate number from image file send by camera with id of gate
-    public void recognize(File file, int gateID) {
+    public Car recognize(File file, int gateID) {
         String recognizedNumber = "BA100KD";
 
         Car car = dataService.get(recognizedNumber);
@@ -56,5 +56,6 @@ public class RecognizeService {
             // brana sa zostava zatvorena a informuje o tom
             barrierService.stayClosed();
         }
+        return car;
     }
 }

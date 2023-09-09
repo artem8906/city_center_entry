@@ -23,6 +23,11 @@ public class BarrierService {
         //brana sa otvara
     }
 
+    public void openInEmergencyCase() {
+        //im emergency case after contact with operator gate will open and
+
+    }
+
     public void stayClosed() {
         //brana informuje ze auto ne bolo najdeno v zozname povolenych
     }
