@@ -7,7 +7,8 @@
 Aplikácia slúži na:
 
 - podávanie a poloautomatizované schvaľovanie žiadostí o vjazd do hrisotrického centra mesta
-- automatizované vymáhanie daní 
+- automatizované podanie oznámenia o vzniku daňovej povinnosti
+- automatizované odoslanie dokumentu o vyrubovaní dane za vjazd motorového vozidla
 - vytváranie účtu pre užívateľovov, ktorý často žiadajú o vstup
 - poloautomatizovanú platenie daní
 - automatizované riadenie vstupu do centra na základe EVČ auta a schválených žiadosti

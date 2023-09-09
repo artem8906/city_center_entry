@@ -84,6 +84,9 @@ public class UserController {
 
     @GetMapping("zoznam-platieb")
     public String platby(ModelMap model){
+        if (!securityContextService.hasAuthority(AuthorityType.USER)) {
+            return "redirect:/";
+        }
         return "ziadatel/zoznam-platieb";
     }
 }

@@ -16,8 +16,8 @@
                     <h2 class="card-title mb-3">Podať žiadosť o vstup vozidla do historického centra mesta</h2>
                     <form th:action="@{/ziadatel/podat-ziadost}" method="post" th:object="${entryRequestForm}">
                         <label for="typeOfPerson">Vyberte typ osoby</label>
-                        <select th:field="*{typeOfPerson}"
-                                id="typeOfPerson" class="form-select form-select-sm"
+                        <select  th:field="*{typeOfPerson}"
+                                id="typeOfPerson" class="form-select form-select-sm mb-3"
                                 aria-label=".form-select-sm example">
                             <option hidden selected value="">Vyberte typ osoby</option>
                             <option value="FYZICKA_OSOBA" th:text="#{FYZICKA_OSOBA}">One</option>
@@ -25,60 +25,60 @@
                         </select>
                         <div id="formData" th:style="*{typeOfPerson == null}? 'display: none;' : ''">
                             <label id="nameLabel" for="name" th:text="#{*{typeOfPerson} + '.nazov'}">Meno osoby</label>
-                            <input th:field="*{name}" class="form-control form-control-sm" type="text" id="name"/>
+                            <input th:field="*{name}" class="form-control form-control-sm mb-3" type="text" id="name"/>
 
                             <label id="identifierLabel" for="identifier"
                                    th:text="#{*{typeOfPerson} + '.identifikator'}">Rodné číslo</label>
-                            <input th:field="*{identifier}" class="form-control form-control-sm" type="text"
+                            <input th:field="*{identifier}" class="form-control form-control-sm mb-3" type="text"
                                    id="identifier"/>
 
                             <label id="phoneLabel" for="phone"
                                    th:text="#{'telefon'}">Telefónne číslo</label>
-                            <input th:field="*{phone}" class="form-control form-control-sm" type="text" id="phone"/>
+                            <input th:field="*{phone}" class="form-control form-control-sm mb-3" type="text" id="phone"/>
 
                             <label id="emailLabel" for="email"
                                    th:text="#{'email'}">Email</label>
-                            <input th:field="*{email}" class="form-control form-control-sm" type="text" id="email"/>
+                            <input th:field="*{email}" class="form-control form-control-sm mb-3" type="text" id="email"/>
 
                             <label id="addressLabel" for="identifier"
                                    th:text="#{*{typeOfPerson} + '.adresa'}">Rodné číslo</label>
-                            <input th:field="*{address}" class="form-control form-control-sm" type="text"
+                            <input th:field="*{address}" class="form-control form-control-sm mb-3" type="text"
                                    id="address"/>
 
                             <label for="ecv"
                                    th:text="#{'ecv'}">Evidenčné číslo vozidla</label>
-                            <input th:field="*{ecv}" class="form-control form-control-sm" type="text"
+                            <input th:field="*{ecv}" class="form-control form-control-sm mb-3" type="text"
                                    id="ecv"/>
 
                             <label for="weightOfCar"
                                    th:text="#{'hmotnost'}">Hmotnosť vozidla (podľa technického preukazu)</label>
-                            <input th:field="*{weightOfCar}" class="form-control form-control-sm" type="text"
+                            <input th:field="*{weightOfCar}" class="form-control form-control-sm mb-3" type="text"
                                    id="weightOfCar"/>
 
                             <label for="factoryBrand"
                                    th:text="#{'znacka'}">Továrenská značka vozidla</label>
-                            <input th:field="*{factoryBrand}" class="form-control form-control-sm" type="text"
+                            <input th:field="*{factoryBrand}" class="form-control form-control-sm mb-3" type="text"
                                    id="factoryBrand"/>
 
                             <label for="purposeOfEntry"
                                    th:text="#{'dovod'}">Dôvod žiadosti na vstup do historickej časti centra
                                 mesta</label>
                             <select th:field="*{purposeOfEntryId}"
-                                    id="purposeOfEntry" class="form-select form-select-sm"
+                                    id="purposeOfEntry" class="form-select form-select-sm mb-3"
                                     aria-label=".form-select-sm example">
                                 <option selected hidden value="">Vyberte dôvod vstupu</option>
                                 <option th:each="purpose : ${purposes}" th:value="${purpose.id}"
                                         th:text="${purpose.text}"></option>
                             </select>
-                            <label for="parking"
+                            <label for="parking" class="mb-3"
                                    th:text="#{'parking'}">Vozidlo bude v historickom meste parkovať</label>
-                            <input th:field="*{parking}" class="form-check-input" type="checkbox"
+                            <input th:field="*{parking}" class="form-check-input mb-3" type="checkbox"
                                    id="parking"/>
                             <br>
                             <label id="parkingStreetLabel" for="parkingStreet"
                                    th:text="#{'ulicaParkovania'}"></label>
                             <select th:field="*{parkingStreetId}"
-                                    id="parkingStreet" class="form-select form-select-sm"
+                                    id="parkingStreet" class="form-select form-select-sm mb-3"
                                     aria-label=".form-select-sm example">
                                 <option selected hidden value="">Vyberte ulicu</option>
                                 <option th:each="street : ${streets}" th:value="${street.id}"
